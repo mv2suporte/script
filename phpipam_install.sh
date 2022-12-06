@@ -20,8 +20,8 @@ echo "BAIXANDO O PHPIPAM"
 sleep 2
 echo
 rm /var/www/html/index.html
-git clone https://github.com/phpipam/phpipam.git /var/www/html/phpipam
-cp /var/www/html/phpipam/config.dist.php /var/www/html/phpipam/config.php
+git clone https://github.com/phpipam/phpipam.git /var/www/html/
+cp /var/www/html/config.dist.php /var/www/html/config.php
 a2enmod rewrite
 sleep 4
 service apache2 restart
