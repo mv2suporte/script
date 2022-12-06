@@ -19,11 +19,5 @@ chmod a+x phpipam_install.sh
 
 ./phpipam_install.sh
 
-OBS: nano /var/www/html/phpipam/config.php
-
-Substituir 
-define('BASE', "/");
-
-para
-
-define('BASE', "/phpipam/");
+$db['pass'] = "phpipamadmin";
+$db['name'] = "phpipam";
