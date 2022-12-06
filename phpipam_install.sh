@@ -19,8 +19,8 @@ echo
 echo "BAIXANDO O PHPIPAM"
 sleep 2
 echo
-rm /var/www/html/index.html
-git clone https://github.com/phpipam/phpipam.git /var/www/html/
+rm /var/www/html -rf
+git clone https://github.com/phpipam/phpipam.git /var/www/html
 cp /var/www/html/config.dist.php /var/www/html/config.php
 a2enmod rewrite
 sleep 4
