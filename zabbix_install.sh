@@ -31,7 +31,7 @@ zabbix-apache-conf zabbix-sql-scripts zabbix-agent zabbix-get \
 zabbix-sender apache2 php php-cgi libapache2-mod-php \
 php-common php-pear php-mbstring php-mysql php-gd php-xml-util php-bcmath \
 php-net-socket nmap snmp snmp-mibs-downloader mariadb-server htop mtr -y
-echo
+sed -i 's/mibs :/# mibs :/g' /etc/snmp/snmp.conf
 echo
 echo "INICIANDO A CONFIGURAÇÃO DO MYSQL"
 sleep 3
