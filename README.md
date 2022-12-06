@@ -1,4 +1,4 @@
-#Docker install
+# Docker install
 wget https://raw.githubusercontent.com/mv2suporte/script/main/docker_install.sh
 chmod a+x docker_install.sh
 ./docker_install.sh
