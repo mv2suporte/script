@@ -47,6 +47,7 @@ echo
 echo "CONFIGURANDO O PHP"
 sleep 3
 sed -i 's/# php_value date.timezone Europe\/Riga/php_value date.timezone America\/Sao_Paulo/g' /etc/apache2/conf-enabled/zabbix.conf
+sed -i 's/# DBPassword=/DBPassword=cisco/g' /etc/zabbix/zabbix_server.conf
 echo
 echo
 echo "INSTALANDO O GRAFANA"
