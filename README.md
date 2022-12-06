@@ -19,5 +19,6 @@ chmod a+x phpipam_install.sh
 
 ./phpipam_install.sh
 
-$db['pass'] = "phpipamadmin";
-$db['name'] = "phpipam";
+Usuário do banco = phpipam
+
+Senha do banco = phpipamadmin
