@@ -9,7 +9,7 @@ echo "Mv2 SOLUTIONS SUPORTE E CONSULTORIA EM TI http://mv2.solutions (24)99841-1
 apt update
 apt install -y htop mtr
 sleep 5
-wget https://raw.githubusercontent.com/mv2suporte/docker/main/profile
+wget https://raw.githubusercontent.com/mv2suporte/script/main/profile
 echo
 echo
 echo "GERANDO ATALHOS DOCKER"
