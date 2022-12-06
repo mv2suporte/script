@@ -72,7 +72,7 @@ systemctl enable zabbix-server.service
 systemctl enable zabbix-agent.service
 systemctl enable grafana-server.service
 echo
-figlet -c "INSTALAÇÃO FINALIZADA"
+figlet -c "FIM"
 sleep 3
 echo
 echo "Mv2 SOLUTIONS"
