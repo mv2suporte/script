@@ -8,7 +8,7 @@ figlet -c "ZABBIX"
 echo "Mv2 SOLUTIONS SUPORTE E CONSULTORIA EM TI http://mv2.solutions (24)99841-1506"
 echo
 echo
-echo "ADCIIONANDO REPOSITORIOS"
+echo "ADICIONANDO REPOSITORIOS"
 sleep 3
 echo 'deb http://deb.debian.org/debian/ buster main contrib non-free' >  /etc/apt/sources.list.d/nonfree.list
 echo 'deb http://deb.debian.org/debian/ buster-updates main contrib non-free' >>  /etc/apt/sources.list.d/nonfree.list
