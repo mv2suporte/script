@@ -9,7 +9,7 @@ echo "Mv2 SOLUTIONS SUPORTE E CONSULTORIA EM TI http://mv2.solutions (24)99841-1
 sleep 5
 echo "INSTALANDO AS DEPENDENCIAS"
 sleep 2
-apt install apache2 php libapache2-mod-php php-curl php-gmp php-mbstring php-gd php-dom php-pear mariadb-server git -y
+apt install apache2 php libapache2-mod-php php-curl php-gmp php-mbstring php-gd php-dom php-pear php-pdo-mysql mariadb-server git -y
 echo "PREPARANDO O BANCO DE DADOS"
 echo
 sleep 2
