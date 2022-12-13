@@ -49,6 +49,10 @@ sleep 3
 sed -i 's/# php_value date.timezone Europe\/Riga/php_value date.timezone America\/Sao_Paulo/g' /etc/apache2/conf-enabled/zabbix.conf
 sed -i 's/# DBPassword=/DBPassword=cisco/g' /etc/zabbix/zabbix_server.conf
 echo
+wget -c -P /usr/lib/zabbix/alertscripts https://raw.githubusercontent.com/mv2suporte/script/main/wppsendgrupo.sh /usr/lib/zabbix/alertscripts
+wget -c -P /usr/lib/zabbix/alertscripts https://raw.githubusercontent.com/mv2suporte/script/main/wppsend.sh /usr/lib/zabbix/alertscripts
+chmod a+x /usr/lib/zabbix/alertscripts/wppsendgrupo.sh
+chmod a+x /usr/lib/zabbix/alertscripts/wppsend.sh
 echo
 echo "INSTALANDO O GRAFANA"
 sleep 3
