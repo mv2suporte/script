@@ -5,7 +5,7 @@ chmod a+x docker_install.sh
 
 ./docker_install.sh
 
-# Zabbix install
+# Zabbix 7 + Grafana install
 wget https://raw.githubusercontent.com/mv2suporte/script/main/zabbix_install.sh
 
 chmod a+x zabbix_install.sh
