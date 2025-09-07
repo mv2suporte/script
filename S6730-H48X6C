@@ -1,0 +1,1226 @@
+sysname sw-core_197.1
+#
+info-center channel 6 name graylog
+info-center source default channel 6 log level alert
+info-center source ARP channel 6 log level notification
+info-center source AAA channel 6 log level warning
+info-center loghost 10.10.61.9 source-ip 10.197.197.1
+#
+vlan batch 4 to 5 7 9 11 14 16 to 18 20 26 31 33
+vlan batch 36 43 to 44 46 58 to 60 62 68 70 73 80 83 to 84
+vlan batch 86 to 88 90 to 94 100 104 106 119 147 to 149 221 864 874
+vlan batch 1006 1101 to 1102 1104 to 1105 1111 1115 to 1116 1195 to 1200 2003 to 2005 2024 2200 2465
+vlan batch 3004 to 3006 3031 3131 3212 3994
+#
+lnp disable
+#
+stp mode rstp
+stp timer forward-delay 500
+stp timer max-age 1000
+stp instance 0 root primary
+stp converge fast
+#
+authentication-profile name default_authen_profile
+authentication-profile name dot1x_authen_profile
+authentication-profile name dot1xmac_authen_profile
+authentication-profile name mac_authen_profile
+authentication-profile name multi_authen_profile
+authentication-profile name portal_authen_profile
+#
+http server-source -i MEth0/0/1
+#
+clock timezone Brasilia minus 03:00:00
+#
+diffserv domain default
+#
+radius-server template default
+#
+bfd
+#
+mpls lsr-id 10.197.197.1
+mpls
+ mpls te
+ mpls rsvp-te
+#
+mpls l2vpn
+#
+vsi 864 static
+ pwsignal ldp
+  vsi-id 864
+  peer 10.197.197.2
+  peer 10.197.197.3
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 26 static
+ pwsignal ldp
+  vsi-id 26
+  peer 10.197.197.3
+  peer 10.197.197.5
+  peer 10.197.197.4
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 88 static
+ pwsignal ldp
+  vsi-id 88
+  peer 10.197.197.3
+  peer 10.197.197.5
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 33 static
+ pwsignal ldp
+  vsi-id 33
+  peer 10.197.197.3
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 100 static
+ pwsignal ldp
+  vsi-id 100
+  peer 10.197.197.3
+  peer 10.197.197.4
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 3994 static
+ pwsignal ldp
+  vsi-id 3994
+  peer 10.197.197.3
+  peer 10.197.197.2
+  peer 10.197.197.4
+  peer 10.197.197.5
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 2024 static
+ pwsignal ldp
+  vsi-id 2024
+  peer 10.197.197.3
+  peer 10.197.197.5
+  peer 10.197.197.2
+  peer 10.197.197.4
+ mtu 9000
+#
+vsi 2004 static
+ pwsignal ldp
+  vsi-id 2004
+  peer 10.197.197.2
+  peer 10.197.197.3
+  peer 10.197.197.5
+  peer 10.197.197.4
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 2003 static
+ pwsignal ldp
+  vsi-id 2003
+  peer 10.197.197.2
+  peer 10.197.197.3
+  peer 10.197.197.4
+  peer 10.197.197.5
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 874 static
+ pwsignal ldp
+  vsi-id 874
+  peer 10.197.197.2
+  peer 10.197.197.3
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 1200 static
+ pwsignal ldp
+  vsi-id 1200
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 36 static
+ pwsignal ldp
+  vsi-id 36
+  peer 10.197.197.5
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 62
+ pwsignal ldp
+  vsi-id 62
+  peer 10.197.197.5
+  peer 10.197.197.4
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 86
+ pwsignal ldp
+  vsi-id 86
+  peer 10.197.197.4
+ mtu 9000
+#
+vsi 300500 static
+ pwsignal ldp
+  vsi-id 300500
+  peer 10.197.197.2
+ mtu 9000
+#
+vsi 300600 static
+ pwsignal ldp
+  vsi-id 300600
+  peer 10.197.197.2
+ mtu 9000
+#
+vsi 1198 static
+ pwsignal ldp
+  vsi-id 1198
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 1197 static
+ pwsignal ldp
+  vsi-id 1197
+  peer 10.197.197.4
+ mtu 9000
+#
+vsi 4 static
+ pwsignal ldp
+  vsi-id 4
+  peer 10.197.197.4
+  peer 10.197.197.5
+  peer 10.197.197.7
+ mtu 9000
+#
+vsi 2005 static
+ pwsignal ldp
+  vsi-id 2005
+  peer 10.197.197.4
+  peer 10.197.197.2
+  peer 10.197.197.3
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 106 static
+ pwsignal ldp
+  vsi-id 106
+  peer 10.197.197.2
+  peer 10.197.197.3
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 147 static
+ pwsignal ldp
+  vsi-id 147
+  peer 10.197.197.4
+#
+vsi 68 static
+ pwsignal ldp
+  vsi-id 68
+  peer 10.197.197.2
+  peer 10.197.197.4
+ mtu 9000
+#
+vsi 149 static
+ pwsignal ldp
+  vsi-id 149
+  peer 10.197.197.4
+ mtu 9000
+#
+vsi 1195 static
+ pwsignal ldp
+  vsi-id 1195
+  peer 10.197.197.3
+  peer 10.197.197.5
+ mtu 9000
+#
+vsi 119 static
+ pwsignal ldp
+  vsi-id 119
+  peer 10.197.197.4
+ mtu 9000
+#
+vsi 5 static
+ pwsignal ldp
+  vsi-id 5
+  peer 10.197.197.2
+ mtu 9000
+#
+vsi 3004 static
+ pwsignal ldp
+  vsi-id 3004
+  peer 10.197.197.3
+ mtu 9000
+#
+vsi 3131 static
+ pwsignal ldp
+  vsi-id 3131
+  peer 10.197.197.2
+  peer 10.197.197.7
+ mtu 9000
+#
+pw-template sw-roteadores
+ peer-address 10.197.197.2
+ mtu 9000
+#
+pw-template sw-servidores
+ peer-address 10.197.197.3
+ mtu 9000
+#
+pw-template ccr1036
+ peer-address 10.197.197.254
+ mtu 9000
+#
+pw-template sw-resende
+ peer-address 10.197.197.7
+ mtu 9000
+#
+pw-template sw-colonia
+ peer-address 10.197.197.4
+ mtu 9000
+#
+pw-template sw-quatis
+ peer-address 10.197.197.5
+ mtu 9000
+#
+mpls ldp
+#
+#
+mpls ldp remote-peer ccr1036_197.254
+ remote-ip 10.197.197.254
+#
+mpls ldp remote-peer ne-rt01-vs-pe
+ remote-ip 10.197.197.12
+#
+mpls ldp remote-peer rt01-vs-pe_197.12
+#
+mpls ldp remote-peer sw-colonia_197.4
+ remote-ip 10.197.197.4
+#
+mpls ldp remote-peer sw-quatis_197.5
+ remote-ip 10.197.197.5
+#
+mpls ldp remote-peer sw-resende_197.7
+ remote-ip 10.197.197.7
+#
+mpls ldp remote-peer sw-roteadores_197.2
+ remote-ip 10.197.197.2
+#
+mpls ldp remote-peer sw-servidores_197.3
+ remote-ip 10.197.197.3
+#
+pki realm default
+ certificate-check none
+#
+free-rule-template name default_free_rule
+#
+portal-access-profile name portal_access_profile
+#
+drop-profile default
+#
+vlan 4
+ description PPPoE CGR
+vlan 5
+ description CIRCUITO_ID:5_ACESSO-CLIENTES-ASR1006_UPLINK03
+vlan 7
+ description CIRCUITO_ID:7_Transporte
+ name CIRCUITO_ID:7_Transporte
+vlan 9
+ description CIRCUITO_ID:9_SUPORTE_FTTH_OLT01
+vlan 11
+ description CIRCUITO_ID:11_24053_LOGIN:chockvrd
+vlan 14
+ description CIRCUITO_ID:14_SUPORTE_OLT02(ROMA)
+vlan 16
+ description CIRCUITO_ID:16_SUPORTE_OLT03(COLONIA)
+vlan 17
+ description CIRCUITO_ID:17_22562_KADOSH-TELECOM
+vlan 18
+ description CIRCUITO_ID:18_24603_JBM-TELECOM
+vlan 20
+ description CIRCUITO_ID:20_SMART_VOLTA-REDONDA
+vlan 26
+ description CIRCUITO_ID:26_GERENCIA_OLT
+vlan 31
+ name PROVEDOR-YNCONECT
+vlan 33
+ description BIOMETRIA
+ name Porteiro_Biometrico
+vlan 36
+ description CIRCUITO_ID:36_REDE-MESh-SN
+vlan 43
+ description bgp_somosnet x sw-core
+ name CIRCUITO_ID:43_SOMOSNET
+vlan 44
+ description CIRCUITO:44_ZAMIX-SMART
+vlan 46
+ description CIRCUITO_ID:46_5688_LOGIN:vivianoauto
+vlan 58
+ description AH-I
+vlan 59
+ description CIRCUITO_ID:59_TRANS_SMART_CANDELARIA
+vlan 60
+ description CIRCUITO_ID:60_TRANS_SMART_BAIRRO-DE-FATIMA
+vlan 62
+ description CIRCUITO_ID:62_REDE-CAMERAS-WIRELESS
+vlan 68
+ description DHCP_ANTENA_EVENTOS
+vlan 70
+ description Acesso_Equipamentos_tv
+vlan 73
+ description Link_Cliente_ASN264477-flix
+vlan 80
+ description Acesso_Temporario_ccr_smart
+vlan 83
+ description CGR
+vlan 84
+ description Loja_Quatis
+ name Loja_Quatis
+vlan 86
+ description CIRCUITO_ID:86_LOJA_CENTRO
+vlan 87
+ description CIRCUITO_ID:87_LOJA_BOA-VISTA
+vlan 88
+ description CIRCUITO_ID:88_SERVIDORES
+vlan 90
+ description BGP_BMFLEX
+vlan 91
+ description BGP_TURBONET
+vlan 92
+ description BGP_CONNECT-v4
+vlan 93
+ description BGP_CONNECT-v6
+vlan 94
+ description Proveto Vida IPv4
+vlan 100
+ description CIRCUITO_ID:100_SERVIDORES-DOCKER
+vlan 104
+ description Wanguar_hping
+vlan 106
+ description TS-TESTE-NE
+vlan 119
+ description MP_CIRCUITO_ID:119_ONNET
+vlan 147
+ description TRANSPORTE_TURBONET_PPPOE
+vlan 148
+ description PLUS-MULTIPLAYER
+vlan 149
+ description TRANSPORTE_CONNECT
+vlan 221
+ description CIRCUITO_ID:221_18903_LOGIN:atacadao
+vlan 864
+ description aplicacao-interna
+vlan 874
+ description CIRCUITO ID:874_APLICACAO-INTERNA_ASN271104
+vlan 1006
+ description CIRCUITO ID:1006_VRF-ASR1006
+vlan 1101
+ description Enlace_CCR1036 x sw-core
+vlan 1102
+ description SW-CORE>SW-ROTEADORES_OSPF
+vlan 1104
+ description sw-core_197.1 x sw-colonia_197.4
+vlan 1105
+ description sw-core_197.1 x sw-quatis_197.5
+vlan 1111
+ description SW-CORE X SW-COLONIA VIA PONTE ALTA
+vlan 1115
+ description MPLS-NE-RT01-VS-PE
+vlan 1116
+ description Enlace rt01-vs-pe x wfilter
+vlan 1195
+ name QinQ_PVE
+vlan 1196
+ description QinQ OLT Sede
+vlan 1197
+ description QinQ_Bras x OLT03_Fiberhome (Colonia)
+vlan 1198
+ description QinQ_Bras x OLT04_Nokia
+vlan 1199
+ description QinQ_Bras x OLT Roma
+vlan 1200
+ description QinQ_BRAS x OLT-Quatis
+vlan 2003
+ description CIRCUITO ID:2003_VoIP
+vlan 2004
+ description CIRCUITO ID:2004_TR_069
+vlan 2005
+ description CIRCUITO ID:2005_SUPORTE_FTTH_OLT04
+vlan 2024
+ description Idrac_e_Virtualizadores
+ name Idrac_e_Virtualizadores
+vlan 2200
+ description FTTH_05-SUPORTE
+vlan 2465
+ description TRANSPORTE_MIXNET_MOINHO-DE-VENTO
+vlan 3004
+ description RT-SEDE X RT-RT69
+vlan 3005
+ description CIRCUITO ID:3005_17187_PNF-ALVES-IBR
+vlan 3006
+ description CIRCUITO ID:3006_17187_PNF-ALVES-IBR
+ name Novo-Peer_PNF-ALVES(IBR)
+vlan 3031
+ description Monitoramento_antena_cristiane_haassis
+vlan 3131
+ description TRASPORTE_ALISSON_VRD_X_RJ2
+vlan 3212
+ description CIRCUITO ID:3212_ACESSO_CISCO1900-ANYCAST
+vlan 3994
+ description GERENCIA-SW
+ name GERENCIA
+#
+aaa
+ authentication-scheme default
+  authentication-mode local
+ authentication-scheme radius
+  authentication-mode radius
+ authorization-scheme default
+  authorization-mode local
+ accounting-scheme default
+  accounting-mode none
+ domain default
+  authentication-scheme radius
+  accounting-scheme default
+  radius-server default
+ domain default_admin
+  authentication-scheme default
+  accounting-scheme default
+ local-user atos password irreversible-cipher $1c$LnkL,;UEpL$`buHM=:)x7gs[d&Bh]/=Pnuk7f[#f$dM6G1<)<hN$
+ local-user atos privilege level 15
+ local-user atos service-type terminal ssh http
+ local-user admin password irreversible-cipher $1c$T|'sDv!MI,$/F5T,4AGw2<o)-9z5o13Nvbo*RrArS3c@h*o+YE.$
+ local-user admin privilege level 15
+ local-user admin service-type terminal ssh http
+ local-user flowspec password irreversible-cipher $1c$-ks}2~nI,T$y3=y;n6}uBX0b33_D^A~$6=-0pMN=J;9Ce!6`z~G$
+ local-user flowspec privilege level 15
+ local-user flowspec service-type terminal ssh http
+ local-user luis.felipe password irreversible-cipher $1c$<cFV)8[h"($j[YW(H`a:0R=R23A@:|Esy@485Fi[Q|RFcVKSjrF$
+ local-user luis.felipe privilege level 15
+ local-user luis.felipe service-type terminal ssh http
+ local-user omarcobraga password irreversible-cipher $1c$V<bzXl%ZvI$qVA=<\>j~IbhcEK.2[|G$/'@Wnu0:@y9J2'-]2:>$
+ local-user omarcobraga privilege level 15
+ local-user omarcobraga service-type terminal ssh http
+#
+ntp-service server disable
+ntp-service ipv6 server disable
+ntp-service unicast-server 10.200.64.254
+#
+interface Vlanif1
+#
+interface Vlanif4
+ description PPPoE_CGR
+ l2 binding vsi 4
+ statistic enable both
+#
+interface Vlanif5
+ description RT-SEDE_CGNAT-ACESSO-CLIENTES
+ l2 binding vsi 5
+ statistic enable both
+#
+interface Vlanif16
+ description Suporte_OLT_Fiber_Colonica
+ mpls l2vc pw-template sw-colonia 16
+ statistic enable both
+#
+interface Vlanif26
+ description Gerencia_OLT
+ l2 binding vsi 26
+ statistic enable both
+#
+interface Vlanif31
+ description PROVEDOR-YNCONECT
+ mpls l2vc pw-template sw-resende 31
+ statistic enable both
+#
+interface Vlanif33
+ description Controladores_de_acesso
+ l2 binding vsi 33
+ statistic enable both
+#
+interface Vlanif36
+ description Rede_Wi-Fi
+ l2 binding vsi 36
+ statistic enable both
+#
+interface Vlanif44
+ description Tranporte_Smart_Controll_Amparo
+ mpls l2vc pw-template sw-resende 44
+ statistic enable both
+#
+interface Vlanif58
+ description AH-I_TELECOM
+ mpls l2vc pw-template sw-colonia 58
+ mpls l2vc pw-template sw-quatis 5800 secondary
+ statistic enable both
+#
+interface Vlanif62
+ description Cameras_SN
+ l2 binding vsi 62
+ statistic enable both
+#
+interface Vlanif68
+ description DHCP_ANTENA_EVENTOS
+ l2 binding vsi 68
+ statistic enable both
+#
+interface Vlanif73
+ description Link_Cliente_ASN264477-flix
+ mpls l2vc pw-template sw-resende 73
+ statistic enable both
+#
+interface Vlanif84
+ description Loja_Quatis
+ mpls l2vc pw-template sw-quatis 84
+ statistic enable both
+#
+interface Vlanif86
+ description Cameras_SN
+ l2 binding vsi 86
+ statistic enable both
+#
+interface Vlanif88
+ description Servidores
+ l2 binding vsi 88
+ statistic enable both
+#
+interface Vlanif90
+ description BGP_BMFLEX
+ mpls l2vc pw-template sw-colonia 90
+ mpls l2vc pw-template sw-quatis 9000 secondary
+ statistic enable both
+#
+interface Vlanif91
+ description BGP_TURBONET
+ mpls l2vc pw-template sw-colonia 91
+ statistic enable both
+#
+interface Vlanif92
+ description BGP_CONNECT-v4
+ mpls l2vc pw-template sw-colonia 92
+ statistic enable both
+#
+interface Vlanif93
+ description BGP_CONNECT-v6
+ mpls l2vc pw-template sw-colonia 93
+ statistic enable both
+#
+interface Vlanif100
+ description Rede_Docker
+ l2 binding vsi 100
+ statistic enable both
+#
+interface Vlanif104
+ description WANGUARD_MONITOR_HPING3
+ mpls l2vc pw-template sw-servidores 104
+ statistic enable both
+#
+interface Vlanif106
+ l2 binding vsi 106
+ statistic enable both
+#
+interface Vlanif119
+ description MP_CIRCUITO_ID:119_ONNET
+ l2 binding vsi 119
+ statistic enable both
+#
+interface Vlanif147
+ description TRANSPORTE_TURBONET_PPPOE
+ l2 binding vsi 147
+ statistic enable both
+#
+interface Vlanif148
+ description PLUS-MULTIPLAYER
+ mpls l2vc pw-template sw-resende 148
+ statistic enable both
+#
+interface Vlanif149
+ description TRANSPORTE_CONNECT
+ l2 binding vsi 149
+ statistic enable both
+#
+interface Vlanif864
+ description aplicacao-interna
+ l2 binding vsi 864
+ statistic enable both
+#
+interface Vlanif874
+ description aplicacao-interna-asn271104
+ l2 binding vsi 874
+ statistic enable both
+#
+interface Vlanif1101
+ description Enlace_CCR1036 x sw-core
+ mtu 9216
+ ip address 10.197.254.254 255.255.255.252
+ ospf authentication-mode md5 1 cipher %^%#)(nWMw6cl'x<=C*9E~NQuBU#&$:;Y([XKBLrzgN%%^%#
+ ospf network-type p2p
+ ospf bfd enable
+ ospf ldp-sync
+ ospf enable 1 area 0.0.0.0
+ mpls
+ mpls mtu 9200
+ mpls te
+ mpls rsvp-te
+ mpls ldp
+#
+interface Vlanif1102
+ description SW-CORE>SW-ROTEADORES
+ mtu 9216
+ ip address 10.197.254.1 255.255.255.252
+ ospf authentication-mode md5 1 cipher %^%#'4RiMehr8D72+9PevY%Mt[.X8^{~1<s&.\Wvw"B$%^%#
+ ospf network-type p2p
+ ospf bfd enable
+ ospf ldp-sync
+ ospf enable 1 area 0.0.0.0
+ mpls
+ mpls mtu 9200
+ mpls te
+ mpls rsvp-te
+ mpls ldp
+#
+interface Vlanif1104
+ description sw-core_197.1 x sw-colonia_197.4
+ mtu 9216
+ ip address 10.197.254.9 255.255.255.252
+ ospf authentication-mode md5 1 cipher %^%#+[r,Lf%b<6(wl4VZs1W(\(LKIZ/A5R/6<]PKb(^K%^%#
+ ospf network-type p2p
+ ospf bfd enable
+ ospf enable 1 area 0.0.0.0
+ mpls
+ mpls mtu 9200
+ mpls te
+ mpls rsvp-te
+ mpls ldp
+#
+interface Vlanif1105
+ description sw-core_197.1 x sw-quatis_197.5
+ mtu 9216
+ ip address 10.197.254.13 255.255.255.252
+ ospf authentication-mode md5 1 cipher %^%#+s6q+L(jm!B}R`*>_d<NE,Y<5:q-,1/Klh2:'PI7%^%#
+ ospf network-type p2p
+ ospf bfd enable
+ ospf ldp-sync
+ ospf enable 1 area 0.0.0.0
+ mpls
+ mpls mtu 9200
+ mpls te
+ mpls rsvp-te
+ mpls ldp
+#
+interface Vlanif1109
+ description Enlace_sw-core x sw-resende
+ shutdown
+ mtu 9216
+ ip address 10.197.254.29 255.255.255.252
+ ospf cost 3000
+ ospf authentication-mode md5 1 cipher %^%#A,9}8#@*B@|@52"zGe[VzE!#/'^o6+P^_dDg^JJE%^%#
+ ospf network-type p2p
+ ospf bfd enable
+ ospf ldp-sync
+ ospf enable 1 area 0.0.0.0
+ mpls
+ mpls mtu 9200
+ mpls te
+ mpls rsvp-te
+ mpls ldp
+#
+interface Vlanif1111
+ description SW-CORE X SW-COLONIA VIA PONTE ALTA
+ mtu 9216
+ ip address 10.197.254.37 255.255.255.252
+ ospf cost 2000
+ ospf authentication-mode md5 1 cipher %^%#N0Gq,/fw^-'{-(L#%tb5E[7n=b(:F5F-=o'X<Np<%^%#
+ ospf network-type p2p
+ ospf bfd enable
+ ospf ldp-sync
+ ospf enable 1 area 0.0.0.0
+ mpls
+ mpls mtu 9200
+ mpls te
+ mpls rsvp-te
+ mpls ldp
+#
+interface Vlanif1115
+ mtu 9216
+ ip address 10.197.254.50 255.255.255.252
+ ospf authentication-mode md5 1 cipher %^%#ZX!Y1"}cf7_nWCX*)7Y,}Bgs6$k/51L*rXFeM$-V%^%#
+ ospf network-type p2p
+ ospf bfd enable
+ ospf ldp-sync
+ ospf enable 1 area 0.0.0.0
+ mpls
+ mpls mtu 9200
+ mpls te
+ mpls rsvp-te
+ mpls ldp
+ statistic enable both
+#
+interface Vlanif1116
+ description Enlace rt01-vs-pe x wfilter
+ mpls l2vc pw-template sw-roteadores 1116
+ statistic enable both
+#
+interface Vlanif1195
+ description QinQ_HA_Proxmox
+ l2 binding vsi 1195
+ statistic enable both
+#
+interface Vlanif1197
+ description OLT03_FIBERHOME_COLONIA
+ l2 binding vsi 1197
+ statistic enable both
+#
+interface Vlanif1198
+ description QinQ_Bras x OLT04_Nokia
+ l2 binding vsi 1198
+ statistic enable both
+#
+interface Vlanif1200
+ description QinQ_BRAS x Quatis
+ l2 binding vsi 1200
+ statistic enable both
+#
+interface Vlanif2003
+ description Telefonia
+ l2 binding vsi 2003
+ statistic enable both
+#
+interface Vlanif2004
+ description TR69
+ l2 binding vsi 2004
+ statistic enable both
+#
+interface Vlanif2005
+ description CIRCUITO ID:2005_SUPORTE_FTTH_OLT04
+ l2 binding vsi 2005
+ statistic enable both
+#
+interface Vlanif2024
+ description Idrac_redenova
+ l2 binding vsi 2024
+ statistic enable both
+#
+interface Vlanif2200
+ description Suporte-OLT-Quatis
+ mpls l2vc pw-template sw-quatis 2200
+ statistic enable both
+#
+interface Vlanif3004
+ description RT-SEDE X RT-RT69
+ l2 binding vsi 3004
+ statistic enable both
+#
+interface Vlanif3005
+ description IBR_v6
+ l2 binding vsi 300500
+ statistic enable both
+#
+interface Vlanif3006
+ description IBR_v4
+ l2 binding vsi 300600
+ statistic enable both
+#
+interface Vlanif3131
+ description TRASPORTE_ALISSON_VRD_X_RJ2
+ l2 binding vsi 3131
+ statistic enable both
+#
+interface Vlanif3212
+ description Gerencia_DNS_Anycast
+ mpls l2vc pw-template sw-roteadores 3212
+ statistic enable both
+#
+interface Vlanif3994
+ description Gerencia_SW
+ l2 binding vsi 3994
+ statistic enable both
+#
+interface MEth0/0/1
+ ip address 192.168.1.253 255.255.255.0
+#
+interface Eth-Trunk1
+ description UPLINK_ROMA
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 4 14 26 62 1199 2003 to 2005 3994
+ mode lacp
+#
+interface Eth-Trunk2
+ description LACP_OLT01
+ port link-type dot1q-tunnel
+ port default vlan 1196
+ mode lacp
+#
+interface Eth-Trunk3
+ description CCR1036_ROTEADOR-SEDE_MPLS
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 5 9 14 16 26 33 36 62 70 80
+ port trunk allow-pass vlan 83 to 84 86 to 88 100 864 874 1006 1101 1195 2004 to 2005 2024
+ port trunk allow-pass vlan 2200 3004 3031 3212 3610 to 3611 3994
+ stp disable
+ mode lacp
+ jumboframe enable 10222
+#
+interface Eth-Trunk4
+ description SW-CORE>SW-ROTEADORES
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 11 18 28 46 1006 1102
+ stp disable
+ mode lacp
+ jumboframe enable 12288
+#
+interface Eth-Trunk5
+ description SmartFibra
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 20 44 59 to 60 80 3994
+ jumboframe enable 9198
+#
+interface Eth-Trunk12
+ description NE-RT01-LAN
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 4 17 20 31 43 58 73 90 to 94 104 106
+ port trunk allow-pass vlan 119 148 221 864 874 1115 to 1116 1196 to 1200
+ mode lacp
+ jumboframe enable 12288
+#
+interface Eth-Trunk15
+ description CIRCUITO_ID:17_22562_KADOSH-TELECOM
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 17 3994
+ mode lacp
+#
+interface Eth-Trunk16
+ description Somonet
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 7 43
+ mode lacp
+#
+interface XGigabitEthernet0/0/1
+ description CCR1036_ROTEADOR-SEDE_sfpplus1
+ eth-trunk 3
+#
+interface XGigabitEthernet0/0/2
+ description CCR1036_ROTEADOR-SEDE_sfpplus2
+ eth-trunk 3
+#
+interface XGigabitEthernet0/0/3
+ description UPLINK_ROMA_xgi0/0/2
+ eth-trunk 1
+#
+interface XGigabitEthernet0/0/4
+ description UPLINK_ROMA_xgi0/0/1
+ eth-trunk 1
+#
+interface XGigabitEthernet0/0/5
+ description LACP_OLT01_19:1
+ eth-trunk 2
+#
+interface XGigabitEthernet0/0/6
+ description LACP_OLT01_20:1
+ eth-trunk 2
+#
+interface XGigabitEthernet0/0/7
+ description CIRCUITO_ID:26_GERENCIA_OLT
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 9 26 28 46 59 to 60 62 68 83 87 147
+ port trunk allow-pass vlan 149 864 2003 to 2004 2465 3031
+#
+interface XGigabitEthernet0/0/8
+ shutdown
+#
+interface XGigabitEthernet0/0/9
+ shutdown
+#
+interface XGigabitEthernet0/0/10
+ shutdown
+#
+interface XGigabitEthernet0/0/11
+ description CIRCUITO_ID:17_22562_KADOSH-VIA_ATERRADO
+ eth-trunk 15
+#
+interface XGigabitEthernet0/0/12
+ description CIRCUITO_ID:17_22562_KADOSH-VIA_BEIRA-RIO
+ eth-trunk 15
+#
+interface XGigabitEthernet0/0/13
+ description Link_somosnet_via_BeiraRio
+ eth-trunk 16
+#
+interface XGigabitEthernet0/0/14
+ description Link_somosnet_via207
+ eth-trunk 16
+#
+interface XGigabitEthernet0/0/15
+ shutdown
+#
+interface XGigabitEthernet0/0/16
+ description ALYSSON
+ port link-type access
+ port default vlan 3131
+ qos lr outbound cir 1536000 cbs 1536000
+ qos lr inbound cir 1536000 cbs 1536000
+#
+interface XGigabitEthernet0/0/17
+ description Projeto_vida
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 94 to 95
+#
+interface XGigabitEthernet0/0/18
+ description CIRCUITO ID:3005_17187_PNF-ALVES-IBR
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 3005 to 3006
+ qos lr outbound cir 3145728 cbs 3145728
+ qos lr inbound cir 3145728 cbs 3145728
+#
+interface XGigabitEthernet0/0/19
+ description CIRCUITO_ID:221_18903_LOGIN:atacadao
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 221 3994
+#
+interface XGigabitEthernet0/0/20
+ description CASA_MARCO
+#
+interface XGigabitEthernet0/0/21
+ description Switch_TV
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 70 88 3994
+#
+interface XGigabitEthernet0/0/22
+ shutdown
+#
+interface XGigabitEthernet0/0/23
+ description SmartFibra_Aterrado
+ eth-trunk 5
+#
+interface XGigabitEthernet0/0/24
+ description SmartFibra_BeiraRio
+ eth-trunk 5
+#
+interface XGigabitEthernet0/0/25
+ description MIXNET
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 2465
+ qos lr outbound cir 512000 cbs 512000
+ qos lr inbound cir 512000 cbs 512000
+#
+interface XGigabitEthernet0/0/26
+ shutdown
+#
+interface XGigabitEthernet0/0/27
+ shutdown
+#
+interface XGigabitEthernet0/0/28
+ shutdown
+#
+interface XGigabitEthernet0/0/29
+ shutdown
+#
+interface XGigabitEthernet0/0/30
+ shutdown
+#
+interface XGigabitEthernet0/0/31
+ shutdown
+#
+interface XGigabitEthernet0/0/32
+ shutdown
+#
+interface XGigabitEthernet0/0/33
+ shutdown
+#
+interface XGigabitEthernet0/0/34
+ shutdown
+#
+interface XGigabitEthernet0/0/35
+ shutdown
+#
+interface XGigabitEthernet0/0/36
+ shutdown
+#
+interface XGigabitEthernet0/0/37
+ shutdown
+#
+interface XGigabitEthernet0/0/38
+ shutdown
+#
+interface XGigabitEthernet0/0/39
+ shutdown
+#
+interface XGigabitEthernet0/0/40
+ shutdown
+#
+interface XGigabitEthernet0/0/41
+ shutdown
+#
+interface XGigabitEthernet0/0/42
+ shutdown
+#
+interface XGigabitEthernet0/0/43
+ shutdown
+#
+interface XGigabitEthernet0/0/44
+ shutdown
+#
+interface XGigabitEthernet0/0/45
+ shutdown
+#
+interface XGigabitEthernet0/0/46
+ shutdown
+#
+interface XGigabitEthernet0/0/47
+ shutdown
+#
+interface XGigabitEthernet0/0/48
+ shutdown
+#
+interface 100GE0/0/1
+ shutdown
+#
+interface 100GE0/0/2
+ description sw-core x sw-colonia via pt.alta
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 1111
+ port negotiation disable
+ stp disable
+ jumboframe enable 12288
+#
+interface 100GE0/0/3
+ description RT01_Ne_100GE0/5/1
+ eth-trunk 12
+#
+interface 100GE0/0/4
+ description SW-ROTEADORES-100GE0/0/4
+ eth-trunk 4
+#
+interface 100GE0/0/5
+ description sw-core_197.1 x sw-quatis_197.5
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 1105
+ stp disable
+ jumboframe enable 12288
+#
+interface 100GE0/0/6
+ description sw-core_197.1 x sw-colonia_197.4
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 1104
+ port negotiation disable
+ stp disable
+ jumboframe enable 12288
+#
+interface NULL0
+#
+interface LoopBack0
+ description Loopback_OSPF
+ ip address 10.197.197.1 255.255.255.255
+ ospf network-type broadcast
+ ospf enable 1 area 0.0.0.0
+#
+ospf 1 router-id 10.197.197.1
+ import-route direct
+ import-route static
+ opaque-capability enable
+ area 0.0.0.0
+  network 10.197.197.1 0.0.0.0 description Loopback
+  network 10.197.254.0 0.0.0.3 description SW-ROTEADORES
+  network 10.197.254.8 0.0.0.3 description SW-COLONIA
+  network 10.197.254.12 0.0.0.3 description SW-QUATIS
+  network 10.197.254.28 0.0.0.3 description SW-RESENDE
+  network 10.197.254.36 0.0.0.3 description SW-COLONIA_VIA_PT-ALTA
+  network 10.197.254.252 0.0.0.3 description CCR1036-SEDE
+  mpls-te enable
+#
+undo icmp name timestamp-request receive
+#
+ip route-static 0.0.0.0 0.0.0.0 10.200.64.254
+#
+snmp-agent
+snmp-agent local-engineid 800007DB03B414E68480E0
+snmp-agent community read cipher %^%#;shWABR]HB3}F;GV}oj7**;u5k3WVA"q^4J~;bM*wS%%%KWhuYd!Ct4E2L12axd/(cg14:-NH,E)0*0B%^%#
+snmp-agent sys-info contact -22.547710723042226
+snmp-agent sys-info location -44.12150212581389
+snmp-agent sys-info version v2c v3
+undo snmp-agent protocol source-status all-interface
+snmp-agent protocol source-interface LoopBack0
+undo snmp-agent protocol source-status ipv6 all-interface
+#
+ssh server timeout 120
+stelnet server enable
+ssh user admin
+ssh user admin authentication-type password
+ssh user admin service-type stelnet
+ssh user atos
+ssh user atos authentication-type password
+ssh user atos service-type stelnet
+ssh user flowspec
+ssh user flowspec authentication-type password
+ssh user flowspec service-type all
+ssh user luis.felipe
+ssh user luis.felipe authentication-type password
+ssh user luis.felipe service-type stelnet
+ssh user omarcobraga
+ssh user omarcobraga authentication-type password
+ssh user omarcobraga service-type all
+ssh server-source all-interface
+ssh server cipher aes256_ctr aes128_ctr
+ssh server hmac sha2_256
+ssh server key-exchange dh_group16_sha512 dh_group15_sha512 dh_group14_sha256 dh_group_exchange_sha256
+ssh client cipher aes256_ctr aes128_ctr
+ssh client hmac sha2_256
+ssh client key-exchange dh_group16_sha512 dh_group15_sha512 dh_group14_sha256 dh_group_exchange_sha256
+ssh server dh-exchange min-len 2048
+ssh server publickey dsa rsa
+#
+user-interface con 0
+ authentication-mode password
+ set authentication password cipher $1c$(d97<Gn3b%$o_.LS!y8kXsBgtQpH$QBnZ'5.=gNP4!NQC=^~637$
+user-interface vty 0 4
+ authentication-mode aaa
+ idle-timeout 60 0
+user-interface vty 16 20
+#
+wlan
+ traffic-profile name default
+ security-profile name default
+ security-profile name default-wds
+ security-profile name default-mesh
+ ssid-profile name default
+ vap-profile name default
+ wds-profile name default
+ mesh-handover-profile name default
+ mesh-profile name default
+ regulatory-domain-profile name default
+ air-scan-profile name default
+ rrm-profile name default
+ radio-2g-profile name default
+ radio-5g-profile name default
+ wids-spoof-profile name default
+ wids-whitelist-profile name default
+ wids-profile name default
+ ap-system-profile name default
+ port-link-profile name default
+ wired-port-profile name default
+ ap-group name default
+ provision-ap
+#
+dot1x-access-profile name dot1x_access_profile
+#
+mac-access-profile name mac_access_profile
+#
+ops
+#
+remote-unit
+#
+return
