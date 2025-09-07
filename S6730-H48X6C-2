@@ -1,9 +1,9 @@
-sysname {{ dispositivo.nome }}
+sysname "{{ dispositivo.nome }}"
 #
-vlan {{ gerencia.vlan_id }}
- name {{ gerencia.vlan_name }}
+vlan "{{ gerencia.vlan_id }}"
+ name "{{ gerencia.vlan_name }}"
 !
-interface Vlanif{{ gerencia.vlan_id }}
- ip address {{ gerencia.ip_address }}
+interface Vlanif"{{ gerencia.vlan_id }}"
+ ip address "{{ gerencia.ip_address }}"
 #
-ip route-static 0.0.0.0 0.0.0.0 {{ gerencia.gateway }} description Gateway-Default
+ip route-static 0.0.0.0 0.0.0.0 "{{ gerencia.gateway }}" description Gateway-Default
