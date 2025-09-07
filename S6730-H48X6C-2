@@ -1,0 +1,15 @@
+sysname {{ dispositivo.nome }}
+#
+stp mode rstp
+stp timer forward-delay 500
+stp timer max-age 1000
+stp instance 0 root primary
+stp converge fast
+#
+vlan {{ gerencia.vlan_id }}
+ name {{ gerencia.vlan_name }}
+!
+interface Vlanif{{ gerencia.vlan_id }}
+ ip address {{ gerencia.ip_address }}
+#
+ip route-static 0.0.0.0 0.0.0.0 {{ gerencia.gateway }} description Gateway-Default
