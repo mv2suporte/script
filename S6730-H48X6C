@@ -1,4 +1,4 @@
-sysname "aqui troque pela variável de nome do host"
+sysname "{{ device.name }}"
 #
 stp mode rstp
 stp timer forward-delay 500
@@ -10,6 +10,6 @@ vlan 3994
  name gerencia
 !
 interface Vlanif3994
- ip address "aqui troque pela variável de ip de gerencia"
+ ip address "{{ device.primary_ip4.address }}"
 #
-ip route-static 0.0.0.0 0.0.0.0 "aqui troque pela variável de gateway" description Gateway-Default
+ip route-static 0.0.0.0 0.0.0.0 "{{ custom_field.gateway_ip }}" description Gateway-Default
