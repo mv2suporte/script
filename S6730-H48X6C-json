@@ -1,0 +1,13 @@
+# Variáveis do Dispositivo
+dispositivo:
+  nome: "{{ device.name }}"
+  
+# Variáveis de Gerência
+gerencia:
+  vlan_id: 3994
+  vlan_name: "gerencia"
+  # Nome da VLAN de gerência
+  ip_address: "{{ device.primary_ip4.address }}"
+  # Endereço IP da interface Vlanif de gerência
+  gateway: "{{ custom_field.gateway_ip }}"
+  # Endereço IP do gateway padrão, geralmente um campo customizado no NetBox
