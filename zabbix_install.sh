@@ -20,8 +20,8 @@ echo "INICIANDO O PROCESSO DE INSTALAÇÃO DO ZABBIX"
 echo
 sleep 3
 echo
-wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-2+debian12_all.deb
-dpkg -i zabbix-release_7.0-2+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian13_all.de
+dpkg -i zabbix-release_latest_7.4+debian13_all.deb
 apt update
 apt install locales -y
 locale-gen pt_BR.UTF-8
