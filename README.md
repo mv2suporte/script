@@ -21,8 +21,11 @@ chmod a+x zabbix_install_debian13_7.4.sh
 
 # Zabbix DEBIAN13 7.4 + Timascaledb + Grafana install
 wget https://raw.githubusercontent.com/mv2suporte/script/refs/heads/main/zabbix_7.4_debian13_timescaledb.sh
+
 wget https://raw.githubusercontent.com/mv2suporte/script/refs/heads/main/zabbix_timescale_setup.sql
+
 chmod a+x zabbix_7.4_debian13_timescaledb.sh
+
 chmod a+x zabbix_timescale_setup.sql
 
 # PhpIpam install
