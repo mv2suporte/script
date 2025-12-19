@@ -60,6 +60,7 @@ wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-releas
 dpkg -i zabbix-release_latest_7.4+debian13_all.deb
 apt update
 
+echo "==== INSTALANDO SERVICOS ===="
 apt install -y \
   zabbix-server-pgsql \
   zabbix-frontend-php \
