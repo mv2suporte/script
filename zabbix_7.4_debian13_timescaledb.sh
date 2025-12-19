@@ -6,7 +6,7 @@ ZABBIX_DB="zabbix"
 ZABBIX_USER="zabbix"
 ZABBIX_PASS="zabbix@123"
 TIMEZONE="America/Sao_Paulo"
-PG_VERSION="18"
+PG_VERSION="17"
 
 echo "==== Timezone ===="
 timedatectl set-timezone $TIMEZONE
@@ -26,7 +26,7 @@ echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] \
 http://apt.postgresql.org/pub/repos/apt trixie-pgdg main" \
 
 apt update
-apt install -y postgresql-$PG_VERSION postgresql-contrib
+apt install -y postgresql-$ postgresql-contrib
 
 echo "==== TimescaleDB ===="
 wget -qO- https://packagecloud.io/timescale/timescaledb/gpgkey \
