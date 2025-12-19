@@ -6,13 +6,10 @@ ZABBIX_DB="zabbix"
 ZABBIX_USER="zabbix"
 ZABBIX_PASS="zabbix@123"
 TIMEZONE="America/Sao_Paulo"
-PG_VERSION="17"
+PG_VERSION="18"
 
 echo "==== Timezone ===="
 timedatectl set-timezone $TIMEZONE
-
-echo "==== Adicionando repositorio ===="
-echo 'deb http://deb.debian.org/debian/ trixie non-free main contrib' >  /etc/apt/sources.list.d/nonfree.list
 
 echo "==== Atualizando sistema ===="
 apt update && apt upgrade -y
@@ -26,7 +23,7 @@ echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] \
 http://apt.postgresql.org/pub/repos/apt trixie-pgdg main" \
 
 apt update
-apt install -y postgresql-$ postgresql-contrib
+apt install -y postgresql-$PG_VERSION postgresql-contrib
 
 echo "==== TimescaleDB ===="
 wget -qO- https://packagecloud.io/timescale/timescaledb/gpgkey \
@@ -80,7 +77,6 @@ apt install -y \
   nmap \
   snmpd \
   snmp \
-  snmp-mibs-downloader \
   htop \
   mtr \
   curl \
@@ -113,14 +109,18 @@ sed -i "s/^max_execution_time.*/max_execution_time = 300/" /etc/php/*/apache2/ph
 sed -i "s/^memory_limit.*/memory_limit = 512M/" /etc/php/*/apache2/php.ini
 sed -i "s|^;date.timezone.*|date.timezone = $TIMEZONE|" /etc/php/*/apache2/php.ini
 
+echo "==== Adicionando repositorio ===="
+echo 'deb http://deb.debian.org/debian/ trixie non-free main contrib' >  /etc/apt/sources.list.d/nonfree.list
+apt update
+apt install -y snmp-mibs-downloader
+rm /etc/apt/sources.list.d/nonfree.list
+
 sed -i 's/mibs :/# mibs :/g' /etc/snmp/snmp.conf
 sed -i 's|DocumentRoot /var/www/html|DocumentRoot /usr/share/zabbix/ui|' /etc/apache2/sites-available/000-default.conf
 
 echo "==== Serviços ===="
 systemctl enable postgresql apache2 zabbix-server zabbix-agent
 systemctl restart postgresql apache2 zabbix-server zabbix-agent
-
-
 
 echo "======================================="
 echo " ZABBIX 7.4 + TIMESCALEDB INSTALADO "
