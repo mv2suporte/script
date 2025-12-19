@@ -120,8 +120,11 @@ echo "==== Adicionando repositorio ===="
 echo 'deb http://deb.debian.org/debian/ trixie non-free main contrib' >  /etc/apt/sources.list.d/nonfree.list
 apt update
 apt install -y snmp-mibs-downloader
+
+echo "==== removendo repositorio ===="
 rm /etc/apt/sources.list.d/nonfree.list
 
+echo "==== Alterando snmp e pagina do zabbix ===="
 sed -i 's/mibs :/# mibs :/g' /etc/snmp/snmp.conf
 sed -i 's|DocumentRoot /var/www/html|DocumentRoot /usr/share/zabbix/ui|' /etc/apache2/sites-available/000-default.conf
 
