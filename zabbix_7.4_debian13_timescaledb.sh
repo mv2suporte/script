@@ -6,7 +6,7 @@ ZABBIX_DB="zabbix"
 ZABBIX_USER="zabbix"
 ZABBIX_PASS="zabbix@123"
 TIMEZONE="America/Sao_Paulo"
-PG_VERSION="18"
+PG_VERSION="17"
 
 echo "==== Timezone ===="
 timedatectl set-timezone $TIMEZONE
@@ -55,7 +55,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb;
 EOF
 
 echo "==== Zabbix 7.4 ===="
-wget wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian13_all.deb
+wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian13_all.deb
 dpkg -i zabbix-release_latest_7.4+debian13_all.deb
 apt update
 
