@@ -15,6 +15,12 @@ echo "==== Atualizando sistema ===="
 apt update && apt upgrade -y
 apt install -y curl wget gnupg2 lsb-release ca-certificates sudo vim
 
+echo "deb http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /usr/share/keyrings/postgresql-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/postgresql-archive-keyring.gpg] http://apt.postgresql.org/pub/repos/apt trixie-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+apt update
+
+
 echo "==== PostgreSQL $PG_VERSION ===="
 wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc \
   | gpg --dearmor > /usr/share/keyrings/postgresql.gpg
