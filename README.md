@@ -26,7 +26,10 @@ wget https://raw.githubusercontent.com/mv2suporte/script/refs/heads/main/zabbix_
 
 chmod a+x zabbix_7.4_debian13_timescaledb.sh
 
-chmod a+x zabbix_timescale_setup.sql
+./zabbix_7.4_debian13_timescaledb.sh
+
+sudo -u postgres psql -d zabbix -f /root/zabbix_timescale_setup.sql
+
 
 # PhpIpam install
 wget https://raw.githubusercontent.com/mv2suporte/script/main/phpipam_install.sh
