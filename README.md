@@ -5,31 +5,6 @@ chmod a+x docker_install.sh
 
 ./docker_install.sh
 
-# Zabbix 7 + Grafana install
-wget https://raw.githubusercontent.com/mv2suporte/script/main/zabbix_install.sh
-
-chmod a+x zabbix_install.sh
-
-./zabbix_install.sh
-
-# Zabbix DEBIAN13 7.4 + Grafana install
-wget https://raw.githubusercontent.com/mv2suporte/script/refs/heads/main/zabbix_install_debian13_7.4.sh
-
-chmod a+x zabbix_install_debian13_7.4.sh
-
-./zabbix_install_debian13_7.4.sh
-
-# Zabbix DEBIAN13 7.4 + Timascaledb + Grafana install
-wget https://raw.githubusercontent.com/mv2suporte/script/refs/heads/main/zabbix_7.4_debian13_timescaledb.sh
-
-wget https://raw.githubusercontent.com/mv2suporte/script/refs/heads/main/zabbix_timescale_setup.sql
-
-chmod a+x zabbix_7.4_debian13_timescaledb.sh
-
-./zabbix_7.4_debian13_timescaledb.sh
-
-sudo -u postgres psql -d zabbix -f /root/zabbix_timescale_setup.sql
-
 
 # PhpIpam install
 wget https://raw.githubusercontent.com/mv2suporte/script/main/phpipam_install.sh
