@@ -1,9 +1,0 @@
-sysname core-197.1
-#
-vlan 3994                                 
- name gerencia
-!
-interface Vlanif3994
- ip address 10.197.197.1 255.255.255.0
-#
-ip route-static 0.0.0.0 0.0.0.0 10.197.197.254 description Gateway-Default
