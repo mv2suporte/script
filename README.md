@@ -1,5 +1,6 @@
 # Docker install
-apt update && aptinstall curl
+apt update && aptinstall curl \
+sleep 5
 curl -fsSL https://raw.githubusercontent.com/mv2suporte/script/main/docker_install.sh | bash
 
 
