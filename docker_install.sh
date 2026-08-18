@@ -182,7 +182,7 @@ docker run -d \
     -v /opt/nginx-proxy-manager/data:/data \
     -v /opt/nginx-proxy-manager/letsencrypt:/etc/letsencrypt \
     jc21/nginx-proxy-manager:latest
-
+    
 echo
 echo "Instalação concluída com sucesso."
 echo "Docker: $(docker --version)"
