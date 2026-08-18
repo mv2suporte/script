@@ -1,95 +1,45 @@
 #!/bin/bash
-
 apt install screen figlet toilet cowsay -y > /dev/null
-
-rm -f /tmp/finish
-
+rm /tmp/finish
 figlet -c "Script"
 figlet -c "de"
 figlet -c "Instalacao"
 figlet -c "DOCKER"
-
 echo "Mv2 SOLUTIONS SUPORTE E CONSULTORIA EM TI http://mv2.solutions (24)99841-1506"
-
-echo
-echo "ATUALIZANDO O SISTEMA"
-echo
-
 apt update
-apt install -y htop mtr curl wget
-
-sleep 3
-
-wget -O /tmp/profile https://raw.githubusercontent.com/mv2suporte/script/main/profile
-
+apt install -y htop mtr
+sleep 5
+wget https://raw.githubusercontent.com/mv2suporte/script/main/profile
+echo
 echo
 echo "GERANDO ATALHOS DOCKER"
 echo
-
-sleep 2
-
-mv /tmp/profile /etc/profile
-
-sleep 2
-
-echo
+sleep 3
+mv profile /etc/profile
+sleep 3
 echo "INICIANDO O PROCESSO DE INSTALAÇÃO DO DOCKER"
-echo
-
 sleep 3
-
-# Remove versões antigas caso existam
-apt remove -y docker docker-engine docker.io containerd runc 2>/dev/null
-
 echo
-echo "BAIXANDO INSTALADOR OFICIAL DO DOCKER"
 echo
-
-curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
-
-sh /tmp/get-docker.sh
-
-rm -f /tmp/get-docker.sh
-
+apt remove docker docker-engine docker.io
+apt install curl -y
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
 sleep 3
-
 echo
-echo "INSTALANDO DOCKER COMPOSE V2"
 echo
-
-apt update
-apt install -y docker-compose-plugin
-
+echo "DOCKER INSTALADO"
 sleep 2
-
-echo
-echo "VERSAO DO DOCKER:"
-docker --version
-
-echo
-echo "VERSAO DO DOCKER COMPOSE:"
-docker compose version
-
-sleep 3
-
-echo
 echo "ALTERANDO O GRUB"
-echo
-
 sleep 2
-
 sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="cgroup_enable=memory swapaccount=1 quiet"/g' /etc/default/grub
-
 update-grub
-
 sleep 2
-
-echo
-echo "INSTALANDO O PORTAINER CE"
-echo
-
+echo "INSTALANDO O PORTAINER"
 sleep 2
-
+echo
+echo
+echo
 docker run -d \
   --name portainer \
   --restart=always \
@@ -98,46 +48,31 @@ docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v portainer_data:/data \
   portainer/portainer-ce:latest
-
+sleep 2
+echo
+echo
+echo "INSTALANDO O DOCKER COMPROSE"
+echo
+echo
 sleep 3
-
+echo
+echo
+apt install -y docker-compose-plugin
+echo
 echo
 echo "ALTERANDO AS PROPRIEDADES DE REDE"
-echo
-
+sleep 3
 echo 1 > /proc/sys/net/ipv4/ip_forward
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
-
+echo
+echo
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 sed -i 's/#net.ipv6.conf.all.forwarding=1/net.ipv6.conf.all.forwarding=1/g' /etc/sysctl.conf
-
-# Garante as configurações mesmo caso as linhas não existam
-grep -q '^net.ipv4.ip_forward=1' /etc/sysctl.conf || echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf
-grep -q '^net.ipv6.conf.all.forwarding=1' /etc/sysctl.conf || echo 'net.ipv6.conf.all.forwarding=1' >> /etc/sysctl.conf
-
-sysctl -p
-
 echo
 echo
-
 figlet -c "DOCKER INSTALADO COM SUCESSO"
-
+echo "o sistema irá reinicializar para aplicar todas as configurações"
 echo
-echo "Docker:"
-docker --version
-
 echo
-echo "Docker Compose:"
-docker compose version
-
-echo
-echo "Portainer:"
-echo "https://IP_DO_SERVIDOR:9443"
-
-echo
-echo "O sistema irá reinicializar para aplicar todas as configurações."
-echo
-
 sleep 10
-
 reboot
