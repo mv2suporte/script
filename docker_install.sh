@@ -190,4 +190,3 @@ echo "Docker Compose: $(docker compose version)"
 echo "Portainer: https://${IPV4}:9443"
 echo "Nginx Proxy Manager: http://${IPV4}:81"
 echo
-echo "Abra uma nova sessão para carregar os atalhos Docker."
