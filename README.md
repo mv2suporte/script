@@ -1,5 +1,5 @@
 # Docker install
-apt update && aptinstall curl
+apt update && apt install curl -y
 
 sleep 5
 
