@@ -1,9 +1,6 @@
 # Docker install
-wget https://raw.githubusercontent.com/mv2suporte/script/main/docker_install.sh
-
-chmod a+x docker_install.sh
-
-./docker_install.sh
+apt update && aptinstall curl
+curl -fsSL https://raw.githubusercontent.com/mv2suporte/script/main/docker_install.sh | bash
 
 
 # PhpIpam install
