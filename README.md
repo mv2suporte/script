@@ -16,3 +16,7 @@ chmod a+x phpipam_install.sh
 Usuário do banco = phpipam
 
 Senha do banco = phpipamadmin
+
+# MUDAR A TELA DE LOGIN DO LINUX
+
+curl -fsSL https://raw.githubusercontent.com/mv2suporte/script/refs/heads/main/20-mv2 -o /etc/update-motd.d/20-mv2 && chmod +x /etc/update-motd.d/20-mv2 && /etc/update-motd.d/20-mv2
